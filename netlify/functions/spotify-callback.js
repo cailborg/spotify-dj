@@ -36,7 +36,7 @@ exports.handler = async (event, context) => {
     const { access_token, refresh_token, expires_in } = tokenResponse.data;
 
     // Redirect back to app with token (in production, use more secure method)
-    const redirectUrl = `${process.env.URL}/?access_token=${access_token}&refresh_token=${refresh_token}&expires_in=${expires_in}`;
+    const redirectUrl = `https://admirable-snickerdoodle-78efb0.netlify.app/callback`;
     
     return {
       statusCode: 302,

@@ -16,7 +16,7 @@ exports.handler = async (event, context) => {
       `response_type=code&` +
       `client_id=${process.env.SPOTIFY_CLIENT_ID}&` +
       `scope=${encodeURIComponent('user-read-email user-read-private playlist-read-private playlist-read-collaborative user-modify-playback-state streaming app-remote-control user-read-playback-state')}&` +
-      `redirect_uri=${encodeURIComponent(process.env.SPOTIFY_REDIRECT_URI)}&` +
+      `redirect_uri=https://admirable-snickerdoodle-78efb0.netlify.app/` +
       `state=${state}`;
 
     return {
