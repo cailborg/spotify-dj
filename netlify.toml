@@ -1,0 +1,28 @@
+[build]
+  publish = "public"
+  functions = "netlify/functions"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+[[redirects]]
+  from = "/login"
+  to = "/.netlify/functions/spotify-auth"
+  status = 200
+
+[[redirects]]
+  from = "/callback"
+  to = "/.netlify/functions/spotify-callback"
+  status = 200
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/spotify-api?path=:splat"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
